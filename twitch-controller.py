@@ -40,7 +40,8 @@ class Twitch:
                 msgUser = msgComponents[0]  # get username
                 msgUser = msgUser[msgUser.find(':') + 1: msgUser.find('!')]
                 msgContent = msgComponents[3]  # print message
-
+                
+                # vote
                 if msgContent.find("forward") >= 0:
                     self.voteDict["FWD"] = self.voteDict["FWD"] + 1
                 if msgContent.find("reverse") >= 0:
@@ -59,25 +60,26 @@ class Twitch:
         if nullCheck:
             print('doing nothing')
 
+            # COMMANDS
         elif voteWinner == "FWD":
             print('FORWARD!')
             keyboard.press('w')
-            time.sleep(2)
+            time.sleep(2) # command interval
             keyboard.release('w')
         elif voteWinner == "REV":
             print('REVERSE!')
             keyboard.press('s')
-            time.sleep(2)
+            time.sleep(2) # command interval
             keyboard.release('s')
         elif voteWinner == "LEFT":
             print('LEFT!')
             keyboard.press('a')
-            time.sleep(2)
+            time.sleep(2) # command interval
             keyboard.release('a')
         elif voteWinner == "RIGHT":
             print('RIGHT!')
             keyboard.press('d')
-            time.sleep(2)
+            time.sleep(2) # command interval
             keyboard.release('d')
         self.voteDict = {"null": 0, "FWD": 0, "REV": 0, "LEFT": 0, "RIGHT": 0}  # reset votes
 
