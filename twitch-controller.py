@@ -41,7 +41,7 @@ class Twitch:
                 msgUser = msgUser[msgUser.find(':') + 1: msgUser.find('!')]
                 msgContent = msgComponents[3]  # print message
                 
-                # vote
+                # VOTE RESULTS
                 if msgContent.find("forward") >= 0:
                     self.voteDict["FWD"] = self.voteDict["FWD"] + 1
                 if msgContent.find("reverse") >= 0:
